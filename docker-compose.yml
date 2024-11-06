@@ -39,6 +39,7 @@ services:
       - static_volume:/app/static
       - django_run:/run/django
       - ./python/app/db.sqlite3:/app/db.sqlite3
+      # - ./app/certs:/app/certs
     entrypoint: ["/app/entrypoint.sh"]
     command: "uwsgi --ini /app/uwsgi.ini"
     expose:

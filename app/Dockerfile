@@ -15,7 +15,8 @@ RUN apt-get update && \
         pkg-config \
         libmariadb-dev \
         clang \
-        build-essential
+        build-essential \
+        postgresql-client
 
 COPY ./requirements.txt ./
 
@@ -41,6 +42,9 @@ RUN chown -R nginx:nginx /app
 RUN mkdir /var/log/django
 RUN touch /var/log/django/django.log
 RUN chown nginx:nginx /var/log/ -R
+
+# COPY certs/ap-northeast-1-bundle.pem /app/certs/
+# RUN chmod 644 /app/certs/ap-northeast-1-bundle.pem
 
 # entrypoint.shの実行権限を変更
 RUN chmod +x /app/entrypoint.sh
