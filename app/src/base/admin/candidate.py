@@ -66,6 +66,10 @@ class CandidateAdmin(admin.ModelAdmin):
         "id_in_media",
     ]
 
+    search_fields: ClassVar = [
+        "id_in_media",
+    ]
+
     readonly_fields: ClassVar = [
         "id",
         "last_name",
@@ -94,6 +98,9 @@ class CandidateAdmin(admin.ModelAdmin):
     ]
 
     form = CandidateCreateForm
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
     def get_form(self, request, obj=None, **kwargs):
         # フォームに user を追加して渡す
