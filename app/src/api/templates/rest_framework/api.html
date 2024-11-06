@@ -1,0 +1,44 @@
+{% extends "rest_framework/api.html" %}
+
+{% block extra_head %}
+<script>
+    function addCustomHeader() {
+        const userIdInput = document.getElementById('user-id-input').value;
+        if (userIdInput) {
+            sessionStorage.setItem('custom-user-id', userIdInput);
+        }
+    }
+
+    function getCustomHeaders() {
+        const headers = {};
+        const customUserId = sessionStorage.getItem('custom-user-id');
+        if (customUserId) {
+            headers['UserID'] = customUserId;
+        }
+        return headers;
+    }
+
+    // Override the default fetch function
+    const originalFetch = window.fetch;
+    window.fetch = function() {
+        const args = arguments;
+        const customHeaders = getCustomHeaders();
+        if (args.length > 1 && args[1].headers) {
+            Object.assign(args[1].headers, customHeaders);
+        } else if (args.length > 1) {
+            args[1].headers = customHeaders;
+        }
+        return originalFetch.apply(this, arguments);
+    };
+</script>
+{% endblock %}
+
+{% block content %}
+<div>
+    <label for="user-id-input">UserID Header:</label>
+    <input type="text" id="user-id-input" placeholder="Enter UserID">
+    <button onclick="addCustomHeader()">Set UserID Header</button>
+</div>
+<hr>
+{{ block.super }}
+{% endblock %}

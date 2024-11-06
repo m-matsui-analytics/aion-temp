@@ -1,0 +1,11 @@
+INSERT INTO public.ideal_candidates (
+    id, created_at, updated_at, name, age_min, age_max, education, 
+    preferred_industry, preferred_occupation, current_position, 
+    current_annual_income, current_income_range_type, employment_status, 
+    company_id, work_value_1_id, work_value_2_id, work_value_3_id, 
+    desired_income_range_type, desired_annual_income
+)
+VALUES
+(1, '2024-10-16 13:22', '2024-10-16 13:49', '未経験', 23, 30, 3, 1, 8, 6, 400, 2, 3, 2, NULL, NULL, NULL, NULL, NULL),
+(2, '2024-10-16 13:25', '2024-10-16 13:49', 'ジュニア層', 20, 32, 3, 1, 8, NULL, NULL, NULL, 3, 2, NULL, NULL, NULL, 2, 450),
+(3, '2024-10-16 13:53', '2024-10-16 13:53', 'ミドル層', 28, 35, 3, NULL, NULL, NULL, NULL, NULL, 3, 2, NULL, NULL, NULL, 2, 600);

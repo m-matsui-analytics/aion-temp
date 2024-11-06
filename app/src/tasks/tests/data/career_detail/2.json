@@ -1,0 +1,71 @@
+{
+    "job_type": 2,
+    "mail_gen_log_id": 1,
+    "candidate_id": 2,
+    "career_detail": {
+        "academic_history": [
+            {
+                "enrollment_date": null,
+                "graduation_date": null,
+                "school": "東京大学",
+                "department": null
+            }
+        ],
+        "work_history": [
+            {
+                "start_date": "2021-04-01",
+                "end_date": null,
+                "experience": "株式会社野村総合研究所 クラウド事業",
+                "detail": "SE（Web・オープン系）として、システム開発、アプリ開発、設計、プロジェクトマネジメント、運用保守を担当。Java開発、システム開発、設計、要件定義、保守改善、プロジェクト管理、運用、開発、Oracle、運用支援サービスなどを実施。システム開発プロジェクトのリーダーとして、プロジェクトの納期を2週間短縮させることに成功。新たなシステム導入により、業務効率を30%改善。"
+            }
+        ],
+        "skills": [
+            {
+                "duration": 3,
+                "skill": "SE（Web・オープン系）",
+                "detail": null
+            },
+            {
+                "duration": 3,
+                "skill": "インフラエンジニア",
+                "detail": null
+            },
+            {
+                "duration": 3,
+                "skill": "情報システム・社内SE",
+                "detail": null
+            },
+            {
+                "duration": 3,
+                "skill": "運用・保守・監視・テクニカルサポート",
+                "detail": null
+            },
+            {
+                "duration": null,
+                "skill": "Java",
+                "detail": "Java言語を使用してシステム開発を担当"
+            },
+            {
+                "duration": null,
+                "skill": "Oracle",
+                "detail": "Oracleデータベースを使用し、データの管理やクエリの作成を実施"
+            },
+            {
+                "duration": null,
+                "skill": "プロジェクトマネジメント",
+                "detail": "プロジェクトの進捗管理やリソースの調整を実施"
+            },
+            {
+                "duration": null,
+                "skill": "英語",
+                "detail": "ビジネス会話レベル"
+            }
+        ],
+        "certifications": [
+            {
+                "certification": "基本情報技術者",
+                "acquisition_date": "2021-04-01"
+            }
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+site_name: "Your API Documentation"
+
+theme:
+  name: 'material'
+
+plugins:
+  - search
+  - swagger-ui-tag
+
+nav:
+  - Home: index.md
+  - Dev Docs:
+      - Top: admin/index.md
+      - Authentication: api/authentication.md
+      - Commands: api/commands.md
+  - API Docs:
+      - Top: api/index.md
+      - Authentication: api/authentication.md

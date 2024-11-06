@@ -1,0 +1,21 @@
+{% extends "admin/change_form.html" %}
+
+{% block content %}
+    {{ block.super }}
+
+    <div style="margin-top: 20px;">
+        {{ link_achademic_history|safe }}
+    </div>
+    <div style="margin-top: 20px;">
+        {{ link_work_history|safe }}
+    </div>
+    <div style="margin-top: 20px;">
+        {{ link_certification|safe }}
+    </div>
+    <div style="margin-top: 20px;">
+        {{ link_skill|safe }}
+    </div>
+    <div style="margin-top: 20px;">
+        {{ link_scout|safe }}
+    </div>
+{% endblock %}

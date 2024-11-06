@@ -1,0 +1,28 @@
+INSERT INTO public.users (
+    password, last_login, id, email, account_status, is_staff, is_superuser, created_at, updated_at, company_id
+) 
+VALUES 
+(
+    'pbkdf2_sha256$600000$1HZ7X9fc6mhusBaDYNba6o$xHNhGUeulA1UtScpC3xJcuRNwWURbn1W+pM/vC5qsx0=', 
+    '2024-10-23 13:21:35.89534+09', 
+    '02cc0560-67fb-499c-9921-fdac5a6b8127', 
+    'admin@test.com', 
+    1, 
+    TRUE, 
+    TRUE, 
+    '2024-10-16 12:05', 
+    '2024-10-16 12:05', 
+    1
+),
+(
+    'pbkdf2_sha256$600000$SNxYixc6Ok2LSeQH8pHnSC$CsbtgnRw+lSAcxIbNMS8BBr2ZlgrmHUHTWJmAGxTOkI=', 
+    NULL, 
+    'acc225b0-405a-49ac-84e7-03e404d485ed', 
+    'user@gmail.com', 
+    1, 
+    FALSE, 
+    FALSE, 
+    '2024-10-23 13:22', 
+    '2024-10-23 13:23', 
+    2
+);

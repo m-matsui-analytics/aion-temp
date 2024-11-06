@@ -1,0 +1,51 @@
+services:
+
+  web:
+    container_name: nginx
+    environment:
+      - TZ=Asia/Tokyo
+      - SERVER_NAME=$SERVER_NAME
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+      args:
+        - ENV=$ENV
+        - SERVER_NAME=$SERVER_NAME
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - static_volume:/app/static
+      - django_run:/run/django
+      - nginx_log:/var/log/nginx
+    command: /bin/bash -c "envsubst '$$ENV $$SERVER_NAME'< /etc/nginx/conf.d/nginx.conf.template > /etc/nginx/conf.d/nginx.conf && nginx -g 'daemon off;'"
+    working_dir: /app
+    depends_on:
+      - app
+
+  app:
+    container_name: django
+    environment:
+      - TZ=Asia/Tokyo
+      - DJANGO_SETTINGS_MODULE=config.settings.$ENV
+    user: $DJANGO_USER
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      args:
+       - ENV=$ENV
+       - DJANGO_USER=$DJANGO_USER
+    volumes:
+      - static_volume:/app/static
+      - django_run:/run/django
+      - ./python/app/db.sqlite3:/app/db.sqlite3
+    entrypoint: ["/app/entrypoint.sh"]
+    command: "uwsgi --ini /app/uwsgi.ini"
+    expose:
+      - "8001"
+
+volumes:
+  static_volume:
+  django_run:
+  nginx_log:
+

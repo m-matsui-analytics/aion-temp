@@ -1,0 +1,39 @@
+{
+    "job_type": 1,
+    "candidate_id": 2,
+    "candidate_profile": {
+        "id": null,
+        "last_name": null,
+        "gender": 1,
+        "age": 29,
+        "prefecture": 14,
+        "industry": 1,
+        "occupation": 8,
+        "position": 6,
+        "current_company": "株式会社野村総合研究所",
+        "department": "クラウド事業",
+        "job_title": null,
+        "current_annual_income_min": 750,
+        "current_annual_income_max": 1000,
+        "work_value_1": 2,
+        "work_value_2": 5,
+        "expectation_1": 7,
+        "expectation_2": 12,
+        "dissatisfaction_1": 17,
+        "dissatisfaction_2": 22,
+        "anxiety_1": 24,
+        "anxiety_2": 23,
+        "is_career_change": false,
+        "preferred_annual_income": null,
+        "preferred_industry": [
+            1
+        ],
+        "preferred_occupation": [
+            8
+        ],
+        "preferred_location": [
+            13,
+            14
+        ]
+    }
+}

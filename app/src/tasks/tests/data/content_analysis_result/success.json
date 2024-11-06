@@ -1,0 +1,50 @@
+{
+    "job_type": "1",
+    "target_type": 1,
+    "company_id": 2,
+    "content_id": 1,
+    "content_analysis_log_id": 1,
+    "result": {
+        "summary": "株式会社分析屋は、データ分析支援を主軸とするIT企業で、プライム市場上場のSHIFTグループの一員です。今回の募集は事業拡大・組織強化のための増員で、データ分析エンジニアを求めています。業務内容はデータ処理から始まり、将来的には要件定義からクライアントへの企画提案まで担当します。使用ツールはAWS、GCP、Azure、Tableau、SAS、SQL、Pythonなど多岐にわたります。金融、エンタメ、通信など様々な業界のデータに触れる機会があり、ビジネスの企画から実装まで関われることが魅力です。応募条件は、プログラミング言語を用いたシステム開発経験やSQLを使用したデータ処理経験などです。給与は年収350万円〜500万円で、スキルに応じて変動します。福利厚生も充実しており、資格取得支援制度やスキルアップのためのサポートも整っています。個人の特性を活かしたキャリアパスも用意されており、マネジメント、技術、ライフワークバランスなど、社員の希望に応じたコース選択が可能です。",
+        "ideal_candidate_id_list": [
+            {
+                "id": 1,
+                "relevance_level_id": 5
+            },
+            {
+                "id": 2,
+                "relevance_level_id": 5
+            },
+            {
+                "id": 3,
+                "relevance_level_id": 3
+            }
+        ],
+        "strength_id_list": [
+            {
+                "id": 1,
+                "relevance_level_id": 5
+            },
+            {
+                "id": 2,
+                "relevance_level_id": 4
+            },
+            {
+                "id": 3,
+                "relevance_level_id": 5
+            },
+            {
+                "id": 4,
+                "relevance_level_id": 5
+            },
+            {
+                "id": 16,
+                "relevance_level_id": 5
+            },
+            {
+                "id": 17,
+                "relevance_level_id": 5
+            }
+        ]
+    }
+}

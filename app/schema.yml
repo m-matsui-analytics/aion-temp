@@ -1,0 +1,203 @@
+openapi: 3.0.3
+info:
+  title: (ローカル)AIon 採用DX API
+  version: 1.0.0
+  description: AIon 採用DX APIのローカル環境用のAPIドキュメントです。
+paths:
+  /api/user/{user_id}:
+    get:
+      operationId: user_retrieve
+      description: ユーザー情報の取得
+      parameters:
+      - in: path
+        name: user_id
+        schema:
+          type: string
+          format: uuid
+        description: ユーザーID
+        required: true
+      tags:
+      - user
+      security:
+      - {}
+      responses:
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Not Found
+  /api/user/password/change/:
+    post:
+      operationId: user_password_change_create
+      description: |-
+        Calls Django Auth SetPasswordForm save method.
+
+        Accepts the following POST parameters: new_password1, new_password2
+        Returns the success/fail message.
+      tags:
+      - user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestAuthDetail'
+          description: ''
+  /api/user/token/:
+    post:
+      operationId: user_token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPairRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPairRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomTokenObtainPairRequest'
+        required: true
+      responses:
+        '200':
+          description: No response body
+  /api/user/token/refresh/:
+    post:
+      operationId: user_token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTokenRefreshRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomTokenRefreshRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomTokenRefreshRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomTokenRefresh'
+          description: ''
+  /api/user/token/verify/:
+    post:
+      operationId: user_token_verify_create
+      description: |-
+        Takes a token and indicates if it is valid.  This view provides no
+        information about a token's fitness for a particular use.
+      tags:
+      - user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomTokenVerifyRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CustomTokenVerifyRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CustomTokenVerifyRequest'
+        required: true
+      responses:
+        '200':
+          description: No response body
+components:
+  schemas:
+    CustomTokenObtainPairRequest:
+      type: object
+      description: |-
+        djangorestframework-simplejwtのTokenObtainPairSerializerをカスタム
+
+        `is_api_user`がTrueのユーザーのみトークンを取得できるようにする
+      properties:
+        email:
+          type: string
+          writeOnly: true
+          minLength: 1
+        password:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - email
+      - password
+    CustomTokenRefresh:
+      type: object
+      description: |-
+        djangorestframework-simplejwtのTokenRefreshSerializerをカスタム
+
+        `is_api_user`がTrueのユーザーのみトークンを取得できるようにする
+      properties:
+        refresh:
+          type: string
+        access:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - refresh
+    CustomTokenRefreshRequest:
+      type: object
+      description: |-
+        djangorestframework-simplejwtのTokenRefreshSerializerをカスタム
+
+        `is_api_user`がTrueのユーザーのみトークンを取得できるようにする
+      properties:
+        refresh:
+          type: string
+          minLength: 1
+      required:
+      - refresh
+    CustomTokenVerifyRequest:
+      type: object
+      description: |-
+        djangorestframework-simplejwtのTokenVerifySerializerをカスタム
+
+        `is_api_user`がTrueのユーザーのみトークンを取得できるようにする
+      properties:
+        token:
+          type: string
+          writeOnly: true
+          minLength: 1
+      required:
+      - token
+    ErrorResponse:
+      type: object
+      description: エラーレスポンスのシリアライザ
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+    RestAuthDetail:
+      type: object
+      properties:
+        detail:
+          type: string
+          readOnly: true
+      required:
+      - detail
+servers:
+- url: http://localhost:8000
