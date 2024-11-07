@@ -47,4 +47,4 @@ class CandidateCertification(BaseModel):
         app_label = 'base'
 
     def __str__(self) -> str: # noqa: D105
-        return f"{self.candidate} {self.skill()}"
+        return self.certification

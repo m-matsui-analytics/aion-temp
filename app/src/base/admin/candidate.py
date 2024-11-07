@@ -187,17 +187,36 @@ class CandidateWorkHistoryAdmin(admin.ModelAdmin):
     (管理画面設定) 候補者職歴
     """
 
+    list_display: ClassVar = [
+        "candidate",
+        "start_date",
+        "end_date",
+        "experience",
+        "detail",
+    ]
+
 @admin.register(CandidateSkill)
 class CandidateSkillAdmin(admin.ModelAdmin):
     """
     (管理画面設定) 候補者スキル
     """
+    list_display: ClassVar = [
+        "candidate",
+        "skill",
+        "duration",
+        "detail",
+    ]
 
 @admin.register(CandidateCertification)
 class CandidateCertificationAdmin(admin.ModelAdmin):
     """
     (管理画面設定) 候補者資格
     """
+    list_display: ClassVar = [
+        "candidate",
+        "acquisition_date",
+        "certification",
+    ]
 
 
 # @admin.register(CandidatePreferredIndustry)
