@@ -147,6 +147,13 @@ class ScoutMail(BaseModel):
         verbose_name="差出人",
     )
 
+    scout_sender_reason = models.TextField(
+        blank=True,
+        null=False,
+        default="",
+        verbose_name="差出人の選択理由",
+    )
+
     is_checked = models.BooleanField(
         blank=False,
         null=False,
