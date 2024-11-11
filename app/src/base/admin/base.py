@@ -160,7 +160,7 @@ class IdealCandidateRequirementAdmin(admin.ModelAdmin):
         "ideal_candidate",
         "requirement_level",
         "requirement_category",
-        "recruitment",
+        "requirement",
     ]
 
 @admin.register(IdealCandidate)

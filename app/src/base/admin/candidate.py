@@ -99,8 +99,8 @@ class CandidateAdmin(admin.ModelAdmin):
 
     form = CandidateCreateForm
 
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
 
     def get_form(self, request, obj=None, **kwargs):
         # フォームに user を追加して渡す

@@ -36,7 +36,7 @@ class IdealCandidateRequirement(BaseModel):
         verbose_name="要件カテゴリ",
     )
 
-    recruitment = models.CharField(
+    requirement = models.CharField(
         blank=False,
         null=False,
         max_length=255,

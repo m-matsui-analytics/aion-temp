@@ -86,7 +86,8 @@ class CandidateCreateForm(forms.ModelForm):
             },
             ensure_ascii=False
         )
-        boto3.client('sqs').send_message(
+        aws_region = os.getenv("AWS_REGION", "ap-northeast-1")
+        boto3.client('sqs', region_name=aws_region).send_message(
             QueueUrl=os.getenv('GENERATE_MAIL_QUEUE_URL'),
             MessageBody=message_body,
             MessageGroupId=str(mail_gen_log.id)
